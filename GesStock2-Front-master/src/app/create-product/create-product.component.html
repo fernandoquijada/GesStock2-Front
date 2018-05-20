@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container clear">
+  <h3 class="mx-auto">{{createOrUpdateMessage}}</h3>
+  <form class="clear">
+    <div *ngIf="!isValid" class="alert alert-danger">
+      <strong>Atención,</strong> {{message}}
+    </div>
+    <div class="form-group">
+      <label for="referenciaProducto">Referencia: </label>
+      <input type="text" class="form-control" id="referenciaProducto" aria-describedby="referenciaProd" placeholder=""
+        [(ngModel)]="product.refProducto" name=r eferencia>
+    </div>
+
+    <div class="form-group">
+      <label for="nombreProducto">Nombre:</label>
+      <input type="text" class="form-control" id="nombreProducto" aria-describedby="nombreProd" [(ngModel)]="product.nombreProducto"
+        name=n ombre>
+    </div>
+
+    <div class="form-group">
+      <label for="descripcionProducto">Descripcion:</label>
+      <textarea class="form-control" id="descripcionProducto" rows="3" [(ngModel)]="product.descProducto" name="descripcion"></textarea>
+    </div>
+
+    <!--
+    <div class="form-group">
+      <label for="pvpBrutoProducto">Precio Bruto:</label>
+      <input type="number" class="form-control" id="pvpBrutoProducto" aria-describedby="pvpBrutoProd">
+    </div>
+  -->
+    <div class="form-group">
+      <label for="imgProducto">Selecciona imagen</label>
+      <input type="file" class="form-control-file" id="imgProducto" aria-describedby="imgProd" [(ngModel)]="product.imagen" name="imagen">
+      <small id="imgProducto" class="form-text text-muted">Selecciona la imagen que deseas adjuntar al producto.</small>
+    </div>
+
+    <button type="submit" class="btn btn-default btn-save" (click)="saveOrUpdateProduct()">Guardar</button>
+
+  </form>
+</div>

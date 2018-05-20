@@ -1,0 +1,19 @@
+.setObligatorio{
+    color: red;
+    font-weight:bolder;
+}
+
+
+.setMargin{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.btn-save{
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 45%;
+}
+.clear{
+    padding: 15px;
+}

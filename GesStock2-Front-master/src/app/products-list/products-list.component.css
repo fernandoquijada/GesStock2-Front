@@ -1,0 +1,35 @@
+.separador-vertical{
+    border-right:1px solid #bfbdbd;
+}
+    
+.titulo-equipo{
+    margin-top:0px;
+}
+    
+.equipo-item{
+    border:	1px solid #D1CFCF ;
+    padding: 10px;
+    border-radius:10px;
+    margin-bottom:25px;
+}
+
+.clear{
+    padding-top: 40px;
+}
+
+.editIcon{
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+}
+
+.botonImagen{
+    width: 28px;
+    height: 25px;
+    background: url("../../assets/misc/empty_bi.png") no-repeat;
+    border:  none;
+    position: relative;
+    top: 5px;  
+    left: 30px;
+    cursor: pointer;
+}

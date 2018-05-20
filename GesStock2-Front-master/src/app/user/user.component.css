@@ -1,0 +1,28 @@
+.clear{
+    padding: 15px;
+}
+
+.table{
+    width: 80%;
+}
+
+.cabecera{
+    background-color: rgb(209, 209, 209);
+}
+
+.editIcon{
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+}
+
+.botonImagen{
+    width: 28px;
+    height: 25px;
+    background: url("../../assets/misc/empty_bi.png") no-repeat;
+    border:  none;
+    position: relative;
+    top: 5px;  
+    left: 30px;
+    cursor: pointer;
+}

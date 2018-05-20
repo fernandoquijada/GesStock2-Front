@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div *ngFor="let product of products" class="container clear">
+  <div class="row equipo-item">
+    <div class="col-md-2 separador-vertical">
+      <img src="//placehold.it/100x100" c ass="img-responsive center-block">
+    </div>
+    <div class="col-md-9">
+      <h3 class="titulo-equipo">{{product.nombreProducto}}</h3>
+      <h6>Ref: {{product.refProducto}}</h6>
+      <p class="texto-equipo">Descripción: {{product.descProducto}}</p>
+      <h6>Stock: {{product.stock}}</h6>
+    </div>
+    <div class="col-md-2 separador-vertical">
+      <img src="../../assets/misc/edit2.png" class="editIcon" (click)="edit(product)">
+      <button class="botonImagen" data-toggle="modal" data-target="#myModal" (click)="setProductToDelete(product)"></button>
+    </div>
+  </div>
+</div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4>¡Atención!</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        ¿Desea borrar {{productToDelete.nombreProducto}} de manera permanente?  </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" (click)="delete(product)">Aceptar</button>
+        <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>

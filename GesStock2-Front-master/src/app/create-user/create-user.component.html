@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="container clear">
+    <form class="form-horizontal setMargin clear">
+      <h3 class="mx-auto">{{createOrUpdateMessage}}</h3>
+      <div *ngIf="!isValid" class="alert alert-danger clear">
+        <strong>Atención,</strong> {{message}}
+      </div>
+    
+      <!--
+      <div class="form-group">
+          <label for="id">
+            <span class="setObligatorio">*</span>Id:</label>
+          <input type="text" class="form-control" id="id" placeholder="Insert your id" [(ngModel)]="user.id" name="id">
+      </div>
+      -->
+    
+      <div class="form-group">
+        <label for="nombre">
+          <span class="setObligatorio">*</span>Nombre:</label>
+        <input type="text" class="form-control" id="nombre" placeholder="" [(ngModel)]="userEdit.nombre" name="nombre">
+      </div>
+    
+      <div class="form-group">
+        <label for="apellidos">
+          <span class="setObligatorio">*</span>Apellidos:</label>
+        <input type="text" class="form-control" id="apellidos" placeholder="" [(ngModel)]="userEdit.apellidos" name="apellidos">
+      </div>
+    
+      <div class="form-group">
+        <label for="usuario">
+          <span class="setObligatorio">*</span>Usuario:</label>
+        <input type="text" class="form-control" id="usuario" placeholder="" [(ngModel)]="userEdit.usuario" name="usuario">
+      </div>
+    
+      <div class="form-group">
+        <label for="pass">
+          <span class="setObligatorio">*</span>Contraseña:</label>
+        <input type="password" class="form-control" id="pass" placeholder="" [(ngModel)]="userEdit.pass" name="pass">
+      </div>
+    
+      <div class="form-group">
+        <label for="email">
+          <span class="setObligatorio">*</span>Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="" [(ngModel)]="userEdit.email" name="email">
+      </div>
+    
+      <div class="form-group">
+        <label for="telefono">Telefono:</label>
+        <input type="text" class="form-control" id="telefono" placeholder="" [(ngModel)]="userEdit.telefono" name="telefono">
+      </div>
+    
+      <div class="form-group">
+        <label for="direccion">Direccion:</label>
+        <input type="text" class="form-control" id="direccion" placeholder="" [(ngModel)]="userEdit.direccion" name="direccion">
+      </div>
+    
+      <button type="submit" class="btn btn-default btn-save" (click)="saveOrUpdate()">Guardar</button>
+    </form>
+
+</div>

@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="container clear">
+    <div class="clear">
+        <h3 class="mx-auto">Listado de Usuarios</h3>
+    </div>
+    <table class="table mx-auto">
+      <thead>
+        <tr class="cabecera">
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Usuario</th>
+          <th>Contraseña</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Editar/Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellidos}}</td>
+          <td>{{item.usuario}}</td>
+          <td>{{item.pass}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.telefono}}</td>
+          <td>{{item.direccion}}</td>
+          <td>
+    
+            <img src="../../assets/misc/edit2.png" class="editIcon" (click)="edit(item)">
+            <button class="botonImagen" data-toggle="modal" data-target="#myModal" (click)="setUserToDelete(item)"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4>¡Atención!</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              ¿Desea borrar a {{userToDelete.usuario}} de manera permanente?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn" data-dismiss="modal" (click)="delete()">Aceptar</button>
+              <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

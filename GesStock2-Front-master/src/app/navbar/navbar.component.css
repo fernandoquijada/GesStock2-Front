@@ -1,0 +1,29 @@
+.tam{
+    margin-top: 10px;
+    width: 150px;
+    height: 90px;
+}
+.jumbotron{
+    padding: 5px;
+}
+.progress-width{
+    width: 0%;
+}
+
+.logoNavBar{
+    width: 75px;
+    cursor: pointer;
+}
+
+.sectionBar{
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown:hover .dropdown-item{
+    cursor:pointer;
+}
