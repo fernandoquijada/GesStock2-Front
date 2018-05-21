@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
       });
     }
-
+    
     else {
       console.log("Falta rellenar usuario o password")
       this.mensajeError = "Falta rellenar usuario y/o contraseña"
