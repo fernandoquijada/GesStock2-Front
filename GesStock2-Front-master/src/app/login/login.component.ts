@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   private userModel;
   private userLogin: Array<UserLogin> = null;
   private sesionDeUsuario: UserSession;
+  private isValid: boolean = true;
+  private mensajeError: String;
 
   constructor(private loginService: LoginService, private router: Router) {
     this.userLoginModel = new UserLogin;
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.userLoginModel.usuario != null && this.userLoginModel.pass != null)
+    if (this.userLoginModel.usuario != null && this.userLoginModel.pass != null) {
       this.loginService.login(this.userLoginModel).subscribe(res => {
         console.log(this.userLoginModel.usuario)
         console.log(this.userLoginModel.pass)
@@ -36,18 +38,26 @@ export class LoginComponent implements OnInit {
         console.log(this.userModel != null)
         if (this.userModel != null) {
           console.log("ha entrado")
-          sessionStorage.setItem("userSession", this.userModel.usuario);
+          sessionStorage.setItem("userSession", this.userLoginModel.usuario);
+          sessionStorage.setItem("userProfile", this.userModel);
+          this.isValid = true;
+          this.router.navigate(["/index"]);
+         
         }
-        this.router.navigate(["/index"]);
+        else {
+          this.mensajeError = "Usuario y/o contraseña inválidos";
+          this.isValid = false;
+          this.userLoginModel.usuario = null;
+          this.userLoginModel.pass = null;
+        }
+
       });
+    }
 
-    else
+    else {
       console.log("Falta rellenar usuario o password")
-
-  }
-
-  entra() {
-     
-    
+      this.mensajeError = "Falta rellenar usuario y/o contraseña"
+      this.isValid = false;
+    }
   }
 }
