@@ -9,8 +9,13 @@ import { UserSession } from '../model/userSession.model';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private router: Router) { 
+  private permisosUsuario: boolean = false;
   
+  constructor(private router: Router) {
+    if (sessionStorage.getItem("userRole") == "admin" || sessionStorage.getItem("userRole") == "usuario")
+      this.permisosUsuario = true;
+
+
   }
 
   ngOnInit() {

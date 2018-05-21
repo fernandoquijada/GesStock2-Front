@@ -14,13 +14,18 @@ import { UserSession } from '../model/userSession.model';
 export class ProductsListComponent implements OnInit {
   private products: Array<ProductModel> = null;
   private productToDelete: ProductModel = new (ProductModel);  //si no se inicia da fallo al cargar el html de inicio
+  private permisosAlmacen: boolean = false;
 
   /*Fernando: No sé lo que hace el router*/
-  constructor(private ProductsListService: ProductsListService, private router: Router) { }
+  constructor(private ProductsListService: ProductsListService, private router: Router) {
+    if (sessionStorage.getItem("userRole") == "admin" || sessionStorage.getItem("userRole") == "almacen")
+      this.permisosAlmacen = true;
+  }
 
   ngOnInit() {
-    if (new UserSession().validateUserSession())
+    if (new UserSession().validateUserSession()) {
       this.loadProducts();
+    }
     else
       this.router.navigate(["/login"]);
   }

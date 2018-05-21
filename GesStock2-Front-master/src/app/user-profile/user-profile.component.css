@@ -1,9 +1,14 @@
 .clear{
     padding-top: 40px;
+    padding-bottom: 40px;
 }
 .separador-vertical{
     
     border-right:1px solid #bfbdbd;
     border-right: none;
 }
-    
+
+.resize {
+    width:20dp;
+    height:10dp;
+  }

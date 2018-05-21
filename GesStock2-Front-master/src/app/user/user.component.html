@@ -9,11 +9,12 @@
           <th>Nombre</th>
           <th>Apellidos</th>
           <th>Usuario</th>
-          <th>Contraseña</th>
+          <th *ngIf="permisosAdmin">Contraseña</th>
           <th>Email</th>
           <th>Teléfono</th>
           <th>Dirección</th>
-          <th>Editar/Borrar</th>
+          <th *ngIf="permisosAdmin">Role</th>
+          <th *ngIf="permisosAdmin">Editar/Borrar</th>
         </tr>
       </thead>
       <tbody>
@@ -21,11 +22,12 @@
           <td>{{item.nombre}}</td>
           <td>{{item.apellidos}}</td>
           <td>{{item.usuario}}</td>
-          <td>{{item.pass}}</td>
+          <td *ngIf="permisosAdmin">{{item.pass}}</td>
           <td>{{item.email}}</td>
           <td>{{item.telefono}}</td>
           <td>{{item.direccion}}</td>
-          <td>
+          <td *ngIf="permisosAdmin">{{item.role}}</td>
+          <td *ngIf="permisosAdmin">
     
             <img src="../../assets/misc/edit2.png" class="editIcon" (click)="edit(item)">
             <button class="botonImagen" data-toggle="modal" data-target="#myModal" (click)="setUserToDelete(item)"></button>

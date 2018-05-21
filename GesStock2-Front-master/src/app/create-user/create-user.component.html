@@ -53,6 +53,12 @@
         <label for="direccion">Direccion:</label>
         <input type="text" class="form-control" id="direccion" placeholder="" [(ngModel)]="userEdit.direccion" name="direccion">
       </div>
+
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <input type="text" class="form-control" id="role" placeholder="" [(ngModel)]="userEdit.role" name="direccion">
+      </div>
+
     
       <button type="submit" class="btn btn-default btn-save" (click)="saveOrUpdate()">Guardar</button>
     </form>

@@ -1,1 +1,51 @@
 <app-navbar></app-navbar>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="hero-widget well well-sm">
+                <div class="icon">
+                    <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <div class="text" *ngIf="permisosUsuario">
+                    <var>Usuarios</var>
+                    <label class="text-muted"></label>
+                </div>
+                <div class="options" *ngIf="permisosUsuario">
+                    <a href="/users-list" class="btn btn-dark btn-lg">
+                        <i class="glyphicon glyphicon-plus"></i> Ver lista</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="hero-widget well well-sm">
+                <div class="icon">
+                    <i class="glyphicon glyphicon-star"></i>
+                </div>
+                <div class="text">
+                    <var>Productos</var>
+                    <label class="text-muted"></label>
+                </div>
+                <div class="options">
+                    <a href="/products-list" class="btn btn-dark btn-lg">
+                        <i class="glyphicon glyphicon-plus"></i> Ver lista</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="hero-widget well well-sm">
+                <div class="icon">
+                    <i class="glyphicon glyphicon-tags"></i>
+                </div>
+                <div class="text">
+                    <var>Perfil</var>
+                    <label class="text-muted"></label>
+                </div>
+                <div class="options">
+                    <a href="/user-profile" class="btn btn-dark btn-lg">
+                        <i class="glyphicon glyphicon-plus"></i> Ver mi perfil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

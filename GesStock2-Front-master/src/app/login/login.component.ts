@@ -14,7 +14,7 @@ import { UserModel } from '../model/user.model';
 export class LoginComponent implements OnInit {
 
   private userLoginModel: UserLogin;
-  private userModel;
+  private userModel: UserModel;
   private userLogin: Array<UserLogin> = null;
   private sesionDeUsuario: UserSession;
   private isValid: boolean = true;
@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
         if (this.userModel != null) {
           console.log("ha entrado")
           sessionStorage.setItem("userSession", this.userLoginModel.usuario);
-          sessionStorage.setItem("userProfile", this.userModel);
+          sessionStorage.setItem("userRole", this.userModel.role);
+          sessionStorage.setItem("userProfile", JSON.stringify(this.userModel));
           this.isValid = true;
           this.router.navigate(["/index"]);
          

@@ -13,13 +13,23 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
   private users: Array<UserModel>
   private userToDelete: UserModel = new (UserModel)
+  private permisosAdmin: boolean = false;
 
   constructor(private UserService: UserService, private router: Router) { }
 
   ngOnInit() {
     console.log(new UserSession().validateUserSession())
-    if (new UserSession().validateUserSession())
-      this.loadUsers();
+    if (new UserSession().validateUserSession()) {
+      if (sessionStorage.getItem("userRole") == "admin") {
+        this.permisosAdmin = true;
+        this.loadUsers();
+      }
+      else if (sessionStorage.getItem("userRole") == "usuario")
+        this.loadUsers();
+
+      else
+        this.router.navigate(["/index"]);
+    }
     else
       this.router.navigate(["/login"]);
 

@@ -22,13 +22,13 @@
       </li>
 -->
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle sectionBar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          <a *ngIf="permisosUsuario" class="nav-link dropdown-toggle sectionBar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Usuarios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" (click)="goToUsersList()">Lista de Usuarios</a>
-            <a class="dropdown-item" (click)="goToCreateUser()">Nuevo Usuario</a>
+            <a *ngIf="permisosAdmin" class="dropdown-item" (click)="goToCreateUser()">Nuevo Usuario</a>
           </div>
       </li>
       <li class="nav-item dropdown">
@@ -38,9 +38,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" (click)="goToProductsList()" [routerLink]="['/products-list']" routerLinkActive="router-link-active" >Lista de Productos</a>
-          <a class="dropdown-item" href="#">Stock</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="goToCreateProduct()" [routerLink]="['/create-product']" routerLinkActive="router-link-active">Agrega nuevo Producto</a>
+          <a *ngIf="permisosAlmacen" class="dropdown-item" (click)="goToCreateProduct()" [routerLink]="['/create-product']" routerLinkActive="router-link-active">Agrega nuevo Producto</a>
         </div>
       </li>
     </ul>

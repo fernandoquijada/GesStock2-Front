@@ -27,16 +27,21 @@ export class CreateProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (new UserSession().validateUserSession()){
+    if (new UserSession().validateUserSession()) {
       //set al campo productEdit una vez recogido en el constructor
-      sessionStorage.setItem('productEdit', JSON.stringify(new(ProductModel)));
-      
+      sessionStorage.setItem('productEdit', JSON.stringify(new (ProductModel)));
+
       //se coge el mensaje enviado por el navbar
-      if(sessionStorage.getItem('createOrUpdateMessage'))
+      if (sessionStorage.getItem('createOrUpdateMessage')) {
         this.createOrUpdateMessage = sessionStorage.getItem('createOrUpdateMessage');
+
+        if (sessionStorage.getItem('userRole') != "admin" && sessionStorage.getItem('userRole') != "almacen")
+          this.router.navigate(["/index"]);
+
+      }
+      else
+        this.router.navigate(["/login"]);
     }
-    else
-      this.router.navigate(["/login"]);
   }
 
   public saveOrUpdateProduct(): void {

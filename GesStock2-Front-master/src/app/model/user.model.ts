@@ -9,4 +9,5 @@ export class UserModel extends ParentEntity{
     public pass: string;
     public email: string;
     public img_perfil: string;
+    public role: string;
 }

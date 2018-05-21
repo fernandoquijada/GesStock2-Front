@@ -19,7 +19,8 @@ export class CreateUserComponent implements OnInit {
   private createOrUpdateMessage: string = '__ usuario __';
 
   constructor(private CreateUserService: CreateUserService, private router: Router) {
-    if (sessionStorage.getItem("userEdit")){
+    
+    if (sessionStorage.getItem("userEdit")) {
       this.userEdit = JSON.parse(sessionStorage.getItem("userEdit"));
     }
     else
@@ -27,17 +28,21 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (new UserSession().validateUserSession()){
+    if (new UserSession().validateUserSession()) {
       //set al campo userEdit una vez recogido en el constructor
-      sessionStorage.setItem('userEdit', JSON.stringify(new(UserModel)));
-          
+      sessionStorage.setItem('userEdit', JSON.stringify(new (UserModel)));
+
       //se coge el mensaje enviado por el navbar
-      if(sessionStorage.getItem('createOrUpdateMessage'))
+      if (sessionStorage.getItem('createOrUpdateMessage')) {
         this.createOrUpdateMessage = sessionStorage.getItem('createOrUpdateMessage');
+        
+        if (sessionStorage.getItem('userRole') != "admin")
+        this.router.navigate(["/index"]);   
+      }
     }
     else
       this.router.navigate(["/login"]);
-    
+
   }
 
   public saveOrUpdate(): void {
